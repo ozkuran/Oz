@@ -10,12 +10,37 @@ namespace Oz.Algorithms.Math.Graph
         public List<Node> Nodes { get; set; }
         public List<Edge> Edges { get; set; }
         private int TotalEdgeWeight { get; set; }
+        public int MaximumVertexCount { get; set; }
+        public double Density { get; set; }
 
         public Graph()
         {
             Nodes = new List<Node>();
             Edges = new List<Edge>();
             TotalEdgeWeight = 0;
+            MaximumVertexCount = 0;
+            Density = 0;
+        }
+
+        /// <summary>
+        /// Calculates Density of The Graph
+        /// </summary>
+        public void CalculateDensity()
+        {
+            if (MaximumVertexCount == 0)    
+	        {
+		        CalculateMaximumVertex();
+	        }
+            Density = MaximumVertexCount / Nodes.Count();
+        }
+
+        /// <summary>
+        /// Calculates Maximum Vertex Count to use with Graph Metrics
+        /// </summary>
+        public void CalculateMaximumVertex()
+        {
+            var nodeCount = Nodes.Count;
+            MaximumVertexCount = nodeCount * (nodeCount - 1) / 2;
         }
 
         public int AddNode(string nodeName)
@@ -52,7 +77,7 @@ namespace Oz.Algorithms.Math.Graph
             return node != null ? node.Id : 0;
         }
         /// <summary>
-        /// 
+        /// Adds Edge to Graph
         /// </summary>
         /// <param name="edge">Enge to be added to graph</param>
         public void AddEdge(Edge edge)
@@ -98,7 +123,7 @@ namespace Oz.Algorithms.Math.Graph
 
 
         /// <summary>
-        /// Normalizing Weights of the Edges
+        /// Normalizing Weights of the Edges and sets those weights to Edges NormalizedWeight property
         /// </summary>
         public void NormalizeEdgeWeigths()
         {
