@@ -1,0 +1,14 @@
+D:\GitHub\Oz\Oz.Algorithms\obj\Debug\Oz.Algorithms.csprojResolveAssemblyReference.cache
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\Oz.Algorithms.dll
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\Oz.Algorithms.pdb
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\JetBrains.Annotations.dll
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\MongoDB.Bson.dll
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\MongoDB.Driver.Core.dll
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\MongoDB.Driver.dll
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\MongoDB.Driver.Legacy.dll
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\JetBrains.Annotations.xml
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\MongoDB.Bson.xml
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\MongoDB.Driver.xml
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\MongoDB.Driver.Legacy.xml
+D:\GitHub\Oz\Oz.Algorithms\obj\Debug\Oz.Algorithms.dll
+D:\GitHub\Oz\Oz.Algorithms\obj\Debug\Oz.Algorithms.pdb
