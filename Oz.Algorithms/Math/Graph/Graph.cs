@@ -31,7 +31,7 @@ namespace Oz.Algorithms.Math.Graph
 	        {
 		        CalculateMaximumVertex();
 	        }
-            Density = MaximumVertexCount / Nodes.Count();
+            Density = (double)MaximumVertexCount / (double)Nodes.Count();
         }
 
         /// <summary>
