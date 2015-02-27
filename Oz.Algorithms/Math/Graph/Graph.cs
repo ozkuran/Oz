@@ -10,37 +10,51 @@ namespace Oz.Algorithms.Math.Graph
         public List<Node> Nodes { get; set; }
         public List<Edge> Edges { get; set; }
         private int TotalEdgeWeight { get; set; }
-        public int MaximumVertexCount { get; set; }
+        public int MaximumEdgeCount { get; set; }
         public double Density { get; set; }
+        public int BiggestEdgeWeight { get; set; }
+
 
         public Graph()
         {
             Nodes = new List<Node>();
             Edges = new List<Edge>();
             TotalEdgeWeight = 0;
-            MaximumVertexCount = 0;
+            MaximumEdgeCount = 0;
             Density = 0;
+            BiggestEdgeWeight = 0;
         }
+
+
+        /// <summary>
+        /// Finds biggest Edge value in Graph
+        /// </summary>
+        private void FindBiggestEdgeValue()
+        {
+            var max = Edges.Select(edge => edge.Weight).Concat(new[] {0}).Max();
+            BiggestEdgeWeight = max;
+        }
+
 
         /// <summary>
         /// Calculates Density of The Graph
         /// </summary>
         public void CalculateDensity()
         {
-            if (MaximumVertexCount == 0)    
+            if (MaximumEdgeCount == 0)    
 	        {
-		        CalculateMaximumVertex();
+		        CalculateMaximumEdgeCount();
 	        }
-            Density = (double)MaximumVertexCount / (double)Nodes.Count();
+            Density = (double)MaximumEdgeCount / (double)Nodes.Count();
         }
 
         /// <summary>
-        /// Calculates Maximum Vertex Count to use with Graph Metrics
+        /// Calculates Maximum Edge Count to use with Graph Metrics
         /// </summary>
-        public void CalculateMaximumVertex()
+        public void CalculateMaximumEdgeCount()
         {
             var nodeCount = Nodes.Count;
-            MaximumVertexCount = nodeCount * (nodeCount - 1) / 2;
+            MaximumEdgeCount = nodeCount * (nodeCount - 1) / 2;
         }
 
         public int AddNode(string nodeName)
@@ -127,9 +141,13 @@ namespace Oz.Algorithms.Math.Graph
         /// </summary>
         public void NormalizeEdgeWeigths()
         {
+            if (BiggestEdgeWeight == 0)
+            {
+                FindBiggestEdgeValue();
+            }
             foreach (var edge in Edges)
             {
-                edge.NormalizedWeight = ((double) edge.Weight / (double)TotalEdgeWeight);
+                edge.NormalizedWeight = ((double) edge.Weight / (double)BiggestEdgeWeight);
             }
         }
 
