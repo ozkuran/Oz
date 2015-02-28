@@ -15,11 +15,17 @@ namespace Oz.Algorithms.Math
             
         }
 
-        public double calculate(List<double> _inputPolynomial, double x)
+        /// <summary>
+        /// Calculator method
+        /// </summary>
+        /// <param name="inputPolynomial"></param>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public double Calculate(List<double> inputPolynomial, double x)
         {
             double result = 0.0;
-            int size = _inputPolynomial.Count;
-            foreach (var val in _inputPolynomial)
+            int size = inputPolynomial.Count;
+            foreach (var val in inputPolynomial)
             {
                 if(--size == 0){
                     result += val;
