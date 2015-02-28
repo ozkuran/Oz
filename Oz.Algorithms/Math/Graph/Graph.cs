@@ -87,13 +87,16 @@ namespace Oz.Algorithms.Math.Graph
             var edgeNumber = -1;
             foreach (var edge in Edges.Where(edge => edge.IsVertexPresent(inputVertex)))
             {
-                if (edgeNumber == -1)
+                if (!visitedVertexes.Contains(edge.GetOtherVertex(inputVertex)))
                 {
-                    edgeNumber = edge.Id;
-                }
-                else if (Edges[edgeNumber].NormalizedWeight < edge.NormalizedWeight)
-                {
-                    edgeNumber = edge.Id;
+                    if (edgeNumber == -1)
+                    {
+                        edgeNumber = edge.Id;
+                    }
+                    else if (Edges[edgeNumber].NormalizedWeight < edge.NormalizedWeight)
+                    {
+                        edgeNumber = edge.Id;
+                    }
                 }
             }
             return edgeNumber;
@@ -106,9 +109,14 @@ namespace Oz.Algorithms.Math.Graph
         /// <returns>Returns a list of doubles includes shortest paths to every Vertex from given Vertex</returns>
         private double CalculateShortestPathBetweenTwoVertexes(Vertex Vertex1, Vertex Vertex2)
         {
+            if (Vertex1.Id == Vertex2.Id)
+            {
+                return 0.0;
+            }
             var shortestDistances = new List<double>();
             var currentVertex = Vertex1.Id;
             var visitedVertexes = new List<int>();
+            visitedVertexes.Add(currentVertex);
             for (var i = 0; i < Vertexes.Count(); i++)
             {
                 shortestDistances.Add(Infinity);
@@ -118,7 +126,7 @@ namespace Oz.Algorithms.Math.Graph
             {
                 foreach (var neighbourVertex in NeighbourVertexes(Vertexes[currentVertex]))
                 {
-                    if (!visitedVertexes.Contains(GetEdgeId(Vertexes[neighbourVertex].Name, Vertexes[currentVertex].Name)))
+                    if (!visitedVertexes.Contains(neighbourVertex))
                     {
                         if (System.Math.Abs(shortestDistances[neighbourVertex] - Infinity) < 10)
                         {
@@ -126,9 +134,22 @@ namespace Oz.Algorithms.Math.Graph
                                 1 - Edges[GetEdgeId(Vertexes[neighbourVertex].Name, Vertexes[currentVertex].Name)]
                                     .NormalizedWeight;
                         }
+                        else
+                        {
+                            shortestDistances[neighbourVertex] +=
+                                1 - Edges[GetEdgeId(Vertexes[neighbourVertex].Name, Vertexes[currentVertex].Name)]
+                                    .NormalizedWeight; 
+                        }
                     }
-                    visitedVertexes.Add(currentVertex);
-                    currentVertex = GetClosestVertexesEdge(Vertexes[currentVertex], visitedVertexes);
+                }
+                var closestVertex = Edges[GetClosestVertexesEdge(Vertexes[currentVertex], visitedVertexes)].GetOtherVertex(Vertexes[currentVertex]);
+                currentVertex = closestVertex;
+                visitedVertexes.Add(currentVertex);
+                List<int> availableVertexes =
+                    NeighbourVertexes(Vertexes[currentVertex]).Except(visitedVertexes).ToList();
+                if (availableVertexes.Count == 0)
+                {
+                    visitedVertexes.Add(Vertex2.Id); // P.S. : I dont like breaks;  Mahmut
                 }
             }
             return shortestDistances[Vertex2.Id];
@@ -207,17 +228,22 @@ namespace Oz.Algorithms.Math.Graph
             MaximumEdgeCount = VertexCount * (VertexCount - 1) / 2;
         }
 
-        public int AddVertex(string VertexName)
+        /// <summary>
+        /// Adds Vertex with given name to graph
+        /// </summary>
+        /// <param name="vertexName"></param>
+        /// <returns></returns>
+        public int AddVertex(string vertexName)
         {
-            if (!IsVertexAdded(VertexName))
+            if (!IsVertexAdded(vertexName))
             {
-                var Vertex = new Vertex(Vertexes.Count() , VertexName);
-                Vertexes.Add(Vertex);
+                var vertex = new Vertex(Vertexes.Count() , vertexName);
+                Vertexes.Add(vertex);
                 return Vertexes.Count();
             }
             else
             {
-                var Vertex = Vertexes.FirstOrDefault(x => x.Name == VertexName);
+                var Vertex = Vertexes.FirstOrDefault(x => x.Name == vertexName);
                 if (Vertex != null)
                 {
                     Vertex.Weight++;
@@ -230,9 +256,15 @@ namespace Oz.Algorithms.Math.Graph
             }
         }
 
-        private bool IsVertexAdded(string VertexName)
+
+        /// <summary>
+        /// Checks if Vertex Added in Graph
+        /// </summary>
+        /// <param name="vertexName">Vertex name to be checked id added</param>
+        /// <returns></returns>
+        private bool IsVertexAdded(string vertexName)
         {
-            return Vertexes.Count(x => x.Name == VertexName) > 0;
+            return Vertexes.Count(x => x.Name == vertexName) > 0;
         }
 
         private int GetVertexId(string VertexName)

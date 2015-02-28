@@ -61,7 +61,7 @@ namespace Oz.Algorithms.Math.Graph
             }
             else if (Vertex2.Id == vertex.Id)
             {
-                result = Vertex2.Id;
+                result = Vertex1.Id;
             }
             return result;
         }
