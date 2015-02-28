@@ -20,6 +20,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Oz.Algorithms.XML</DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -70,7 +72,8 @@
     <Compile Include="Data\Factory\MongoDBFactory.cs" />
     <Compile Include="Math\Graph\Edge.cs" />
     <Compile Include="Math\Graph\Graph.cs" />
-    <Compile Include="Math\Graph\Node.cs" />
+    <Compile Include="Math\Graph\Vertex.cs" />
+    <Compile Include="Math\Graph\Path.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
