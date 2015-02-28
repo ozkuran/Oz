@@ -1,4 +1,6 @@
-﻿namespace Oz.Algorithms.Math.Graph
+﻿using System;
+
+namespace Oz.Algorithms.Math.Graph
 {
     public class Edge
     {
@@ -32,5 +34,36 @@
             NormalizedWeight = 0;
         }
 
+        /// <summary>
+        /// Returns true if given Node present in Edge
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public bool IsNodePresent(Node node)
+        {
+            var result = Node1.Id == node.Id || Node2.Id == node.Id;
+            return result;
+        }
+
+
+        /// <summary>
+        /// Returns the node of edge other node than given node
+        /// If given node not in edge returns -1
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public int GetOtherNode(Node node)
+        {
+            var result = -1;
+            if (Node1.Id == node.Id)
+            {
+                result = Node2.Id;
+            }
+            else if (Node2.Id == node.Id)
+            {
+                result = Node2.Id;
+            }
+            return result;
+        }
     }
 }
