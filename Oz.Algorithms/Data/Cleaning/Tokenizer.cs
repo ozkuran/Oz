@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Databench.ClassLibrary.Data.Cleaning
+namespace Oz.Algorithms.Data.Cleaning
 {
-    class Tokenizer
+    public class Tokenizer
     {
         public List<string> TokenizedList = new List<string>();
         private string _inputString;
