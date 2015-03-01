@@ -4,6 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using Oz.Algorithms.Data.Factory;
 
 namespace Oz.Algorithms.Data.Acquisition.Mailbox
 {
@@ -25,6 +28,7 @@ namespace Oz.Algorithms.Data.Acquisition.Mailbox
             var post = new Post();
             var lineCount = 0;
             var headerFinish = false;
+            var line = "";
             foreach (var s in postStringList)
             {
                 if (s == "")
@@ -33,26 +37,44 @@ namespace Oz.Algorithms.Data.Acquisition.Mailbox
                 }
                 if (!headerFinish)
                 {
-                   post.HeaderList.Add(s);
+                    if (s != null)
+                    {
+                        if (s.StartsWith("From "))
+                        {
+                            post.Header.Id = s.Substring(s.IndexOf("From ", System.StringComparison.Ordinal) + s.Length);
+                        }
+                        else if (s.StartsWith("From: "))
+                        {
+                            post.Header.From = s.Substring(s.IndexOf("From: ", System.StringComparison.Ordinal) + s.Length);
+                        }
+                        else if (s.StartsWith("Subject: "))
+                        {
+                            post.Header.Subject = s.Substring(s.IndexOf("Subject: ", System.StringComparison.Ordinal) + s.Length);
+                        }
+                        else if (s.StartsWith("Message-ID: "))
+                        {
+                            post.Header.MessageId = s.Substring(s.IndexOf("Message-ID: ", System.StringComparison.Ordinal) + s.Length);
+                        }
+                        else if (s.StartsWith("Date: "))
+                        {
+                            post.Header.Date = s.Substring(s.IndexOf("Date: ", System.StringComparison.Ordinal) + s.Length);
+                        }
+                    }
+                    post.HeaderList.Add(s);
                 }
                 else
                 {
-                    post.Body.Add(s);
+                    line += s;
                 }
-                /*int index = line.IndexOf(": ");
-                    if ((index >= 2) && (index < 30))
-                    {
-                        distinctValues.Add(line.Substring(0, index));
-                    }
-                    else
-                    {
-                        index = 0;
-                    }
-                }*/
             }
+            post.Body.Add(line);
             return post;
         }
 
+        /// <summary>
+        /// Loads Group Posts From File
+        /// </summary>
+        /// <param name="groupname"></param>
         public void LoadGroupFromFile(string groupname = "")
         {
             var distinctValues = new HashSet<string>();
@@ -81,6 +103,20 @@ namespace Oz.Algorithms.Data.Acquisition.Mailbox
                 }*/
             }
             groupname = "";            
+        }
+
+        /// <summary>
+        /// Stores given group on MongoDB 
+        /// </summary>
+        /// <param name="mongo"></param>
+        public void StoreGroupOnDb(MongoDBFactory mongo)
+        {
+            mongo.Connect();
+            MongoCollection<BsonDocument> collection = mongo.GetCollection("comp.ai.neural-nets");
+            foreach (var post in Posts)
+            {
+                collection.Insert(post);
+            }
         }
 
     }

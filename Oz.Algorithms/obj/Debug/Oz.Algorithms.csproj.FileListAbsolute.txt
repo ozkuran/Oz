@@ -12,3 +12,4 @@ D:\GitHub\Oz\Oz.Algorithms\bin\Debug\MongoDB.Driver.xml
 D:\GitHub\Oz\Oz.Algorithms\bin\Debug\MongoDB.Driver.Legacy.xml
 D:\GitHub\Oz\Oz.Algorithms\obj\Debug\Oz.Algorithms.dll
 D:\GitHub\Oz\Oz.Algorithms\obj\Debug\Oz.Algorithms.pdb
+D:\GitHub\Oz\Oz.Algorithms\bin\Debug\Oz.Algorithms.XML

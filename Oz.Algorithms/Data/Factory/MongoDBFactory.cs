@@ -58,14 +58,6 @@ namespace Oz.Algorithms.Data.Factory
         /// </summary>
         public bool Connect()
         {
-            /*_credential = MongoCredential.CreateMongoCRCredential(_database, _userName, _password);
-
-            var settings = new MongoClientSettings
-            {
-                Credentials = new[] { _credential }
-            };
-
-            _mongoClient = new MongoClient(settings);*/
             try
             {
                 if (_userName != "")

@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Acquisition\Mailbox\Group.cs" />
+    <Compile Include="Data\Acquisition\Mailbox\Header.cs" />
     <Compile Include="Data\Acquisition\Mailbox\Mbox.cs" />
     <Compile Include="Data\Acquisition\Mailbox\Post.cs" />
     <Compile Include="Data\Acquisition\Stackoverflow\Post.cs" />
@@ -70,6 +71,8 @@
     <Compile Include="Data\Cleaning\Tokenizer.cs" />
     <Compile Include="Data\Clustering\Cluster.cs" />
     <Compile Include="Data\Factory\MongoDBFactory.cs" />
+    <Compile Include="Math\Approximation\Bisection.cs" />
+    <Compile Include="Math\CalculatePolynomial.cs" />
     <Compile Include="Math\Graph\Edge.cs" />
     <Compile Include="Math\Graph\Graph.cs" />
     <Compile Include="Math\Graph\Vertex.cs" />
