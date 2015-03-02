@@ -81,7 +81,6 @@ namespace Oz.Algorithms.Data.Factory
                 {
                     _mongoDatabase = server.GetDatabase(_database);
                 }
-                //MongoCollection<BsonDocument> collection = database.GetCollection<BsonDocument>("stackoverflow.posts");
                 return true;
             }
             catch (Exception)
@@ -101,6 +100,26 @@ namespace Oz.Algorithms.Data.Factory
         public MongoCollection<BsonDocument> GetCollection(string collectionName)
         {
             return _mongoDatabase.GetCollection<BsonDocument>(collectionName);
-        } 
+        }
+
+        /// <summary>
+        /// Selects Database
+        /// </summary>
+        /// <param name="databaseName">Name of the database want to switch</param>
+        /// <returns></returns>
+        public bool SelectDatabase(string databaseName)
+        {
+            var server = _mongoClient.GetServer();
+            _mongoDatabase = server.GetDatabase(databaseName);
+            if (_mongoDatabase != null)
+            {
+                return true;    
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
     }
 }
