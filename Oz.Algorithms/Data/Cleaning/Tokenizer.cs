@@ -23,7 +23,8 @@ namespace Oz.Algorithms.Data.Cleaning
 
         public List<String> Tokenize()
         {
-            TokenizedList = _inputString.Split(',').ToList();
+            char[] seperator = { ',', ' ', '\r', '\n', '\t','"','\'', };
+            TokenizedList = _inputString.Split(seperator).ToList();
             return TokenizedList;
         }
 

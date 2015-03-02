@@ -16,6 +16,12 @@ namespace Oz.Algorithms.Data.Acquisition.Mailbox
         /// Headers of the post
         /// </summary>
         public Header Header { get; set; }
+        
+        /// <summary>
+        /// Body text without stopwords
+        /// </summary>
+        /// 
+        public List<string> NoStopWordBody { get; set; }
 
         /// <summary>
         /// Post Object
@@ -25,6 +31,7 @@ namespace Oz.Algorithms.Data.Acquisition.Mailbox
             HeaderList = new List<string>();
             Body = new List<string>();
             Header = new Header();
+            NoStopWordBody = new List<string>();
         }
     }
 }

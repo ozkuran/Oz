@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Databench.ClassLibrary.Data.Cleaning;
+using Oz.Algorithms.Data.Cleaning;
 
 namespace Oz.Algorithms.Data.Cleaning
 {
+    /// <summary>
+    /// Removes Stop Words From Given Text
+    /// </summary>
     public class StopWordRemover
     {
         public List<string> StopWordRemovedList = new List<string>();
@@ -37,13 +40,13 @@ namespace Oz.Algorithms.Data.Cleaning
 
         public StopWordRemover(string inputString)
         {
-            Tokenizer tokenizer = new Tokenizer(inputString);
+            var tokenizer = new Tokenizer(inputString);
             _inputStringList = tokenizer.Tokenize();
         }
 
         public void SetInputStringList(string inputString)
         {
-            Tokenizer tokenizer = new Tokenizer(inputString);
+            var tokenizer = new Tokenizer(inputString);
             _inputStringList = tokenizer.Tokenize();
         }
 

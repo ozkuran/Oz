@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Oz.Algorithms.Data.Cleaning;
 using Oz.Algorithms.Data.Factory;
 
 namespace Oz.Algorithms.Data.Acquisition.Mailbox
@@ -37,28 +38,25 @@ namespace Oz.Algorithms.Data.Acquisition.Mailbox
                 }
                 if (!headerFinish)
                 {
-                    if (s != null)
+                    if (s.StartsWith("From "))
                     {
-                        if (s.StartsWith("From "))
-                        {
-                            post.Header.Id = s.Substring(s.IndexOf("From ", System.StringComparison.Ordinal) + s.Length);
-                        }
-                        else if (s.StartsWith("From: "))
-                        {
-                            post.Header.From = s.Substring(s.IndexOf("From: ", System.StringComparison.Ordinal) + s.Length);
-                        }
-                        else if (s.StartsWith("Subject: "))
-                        {
-                            post.Header.Subject = s.Substring(s.IndexOf("Subject: ", System.StringComparison.Ordinal) + s.Length);
-                        }
-                        else if (s.StartsWith("Message-ID: "))
-                        {
-                            post.Header.MessageId = s.Substring(s.IndexOf("Message-ID: ", System.StringComparison.Ordinal) + s.Length);
-                        }
-                        else if (s.StartsWith("Date: "))
-                        {
-                            post.Header.Date = s.Substring(s.IndexOf("Date: ", System.StringComparison.Ordinal) + s.Length);
-                        }
+                        post.Header.Id = s.Substring(s.IndexOf("From ", System.StringComparison.Ordinal) + s.Length);
+                    }
+                    else if (s.StartsWith("From: "))
+                    {
+                        post.Header.From = s.Substring(s.IndexOf("From: ", System.StringComparison.Ordinal) + s.Length);
+                    }
+                    else if (s.StartsWith("Subject: "))
+                    {
+                        post.Header.Subject = s.Substring(s.IndexOf("Subject: ", System.StringComparison.Ordinal) + s.Length);
+                    }
+                    else if (s.StartsWith("Message-ID: "))
+                    {
+                        post.Header.MessageId = s.Substring(s.IndexOf("Message-ID: ", System.StringComparison.Ordinal) + s.Length);
+                    }
+                    else if (s.StartsWith("Date: "))
+                    {
+                        post.Header.Date = s.Substring(s.IndexOf("Date: ", System.StringComparison.Ordinal) + s.Length);
                     }
                     post.HeaderList.Add(s);
                 }
@@ -68,6 +66,8 @@ namespace Oz.Algorithms.Data.Acquisition.Mailbox
                 }
             }
             post.Body.Add(line);
+            var swr = new StopWordRemover(line);
+            post.NoStopWordBody = swr.Remove();
             return post;
         }
 
@@ -97,10 +97,6 @@ namespace Oz.Algorithms.Data.Acquisition.Mailbox
                     postStringList.Clear();
                 }
                 postStringList.Add(line);
-/*                else
-                {
-                    newPost = false;
-                }*/
             }
             groupname = "";            
         }
