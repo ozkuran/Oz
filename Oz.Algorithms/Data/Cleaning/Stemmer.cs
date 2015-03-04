@@ -419,7 +419,7 @@ namespace Oz.Algorithms.Data.Cleaning
 
         public string stem(string word)
         {
-            if (word.Length < 3) return word;
+            if (word.Length < 3) return word.ToLower();
 
             StringBuilder sb = new StringBuilder(word.ToLower());
 

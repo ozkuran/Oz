@@ -35,7 +35,9 @@ namespace Oz.Algorithms.Data.Cleaning
 		    "regardless","regards","related","relatively","research","respectively","resulted","resulting","results","right","run","s","said","same","saw","say","saying","says","sec","section","see","seeing","seem","seemed","seeming","seems",
 		    "seen","self","selves","sent","seven","several","shall","she","shed","she'll","shes","should","shouldn't","show","showed","shown","showns","shows","significant","significantly","similar","similarly","since","six","slightly","so",
 		    "some","somebody","somehow","someone","somethan","something","sometime","sometimes","somewhat","somewhere","soon","sorry","specifically","specified","specify","specifying","still","stop","strongly","sub","substantially","successfully",
-		    "such","sufficiently","suggest","sup","sure"
+		    "such","sufficiently","suggest","sup","sure","so","some","such","than","that","that's","the","their","theirs","them","themselves","then","there","there's","these","they","they'd","they'll","they're","they've","this","those","through",
+            "to","too","under","until","up","very","was","wasn't","we","we'd","we'll","we're","we've","were","weren't","what","what's","when","when's","where","where's","which","while","who","who's","whom","why","why's","with","won't","would","wouldn't",
+            "you","you'd","you'll","you're","you've","your","yours","yourself","yourselves",
         };
 
         public StopWordRemover(string inputString)
