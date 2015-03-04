@@ -19,6 +19,10 @@ namespace Oz.Algorithms.Data.Download.Github
         private readonly int _endMonth;
         private readonly int _endYear;
         private readonly string _directory;
+        private int _currentYear;
+        private int _currentMonth;
+        private int _currentDay;
+
 
         /// <summary>
         /// 
@@ -42,45 +46,90 @@ namespace Oz.Algorithms.Data.Download.Github
 
         public bool Download()
         {
+            var result = false;
             for (var i = _startYear; i <= _endYear; i++)
             {
-                for (var j = _startMonth; j <= _endMonth; j++)
+                result = DownloadYear(i);
+            }
+            return result;
+        }
+
+        private bool DownloadYear(int year)
+        {
+            var result = true;
+            var j = 0;
+            _currentYear = year;
+            if (_startYear == year)
+            {
+                j = _startMonth;
+            }
+            for (var i = j; i < 12; i++)
+            {
+                result &= DownloadMonth(i);
+            }
+            return result;
+        }
+
+        private bool DownloadMonth(int month)
+        {
+            var result = true;
+            var j = 0;
+            _currentMonth = month;
+            if ((_startYear == _currentYear) && (_startMonth == month))
+            {
+                j = _startDay;
+            }
+            for (var i = j; i < 31; i++)
+            {
+                result &= DownloadDay(i);
+            }
+            return result;
+        }
+
+        private bool DownloadDay(int day)
+        {
+            var result = true;
+            for (var i = 0; i < 24; i++)
+            {
+                try
                 {
-                    for (var k = _startDay; k <= _endDay; k++)
+                    var webClient = new WebClient();
+                    var fileName = "";
+                    if (_currentMonth < 10)
                     {
-                        for (var l = 0; l < 24; l++)
+                        if (day < 10)
                         {
-                            var webClient = new WebClient();
-                            var fileName = "";
-                            if (j < 10)
-                            {
-                                if (k < 10)
-                                {
-                                    fileName = i + "-0" + j + "-0" + k + "-" + l + ".json.gz";
-                                }
-                                else
-                                {
-                                    fileName = i + "-0" + j + "-" + k + "-" + l + ".json.gz";
-                                }
-                            }
-                            else
-                            {
-                                if (k < 10)
-                                {
-                                    fileName = i + "-" + j + "-0" + k + "-" + l + ".json.gz";
-                                }
-                                else
-                                {
-                                    fileName = i + "-" + j + "-" + k + "-" + l + ".json.gz";
-                                }
-                            }
-                            webClient.DownloadFile("http://data.githubarchive.org/" + fileName, _directory + "\\" + fileName);
+                            fileName = _currentYear + "-0" + _currentMonth + "-0" + day + "-" + i + ".json.gz";
+                        }
+                        else
+                        {
+                            fileName = _currentYear + "-0" + _currentMonth + "-" + day + "-" + i + ".json.gz";
                         }
                     }
+                    else
+                    {
+                        if (day < 10)
+                        {
+                            fileName = _currentYear + "-" + _currentMonth + "-0" + day + "-" + i + ".json.gz";
+                        }
+                        else
+                        {
+                            fileName = _currentYear + "-" + _currentMonth + "-" + day + "-" + i + ".json.gz";
+                        }
+                    }
+                    webClient.DownloadFile("http://data.githubarchive.org/" + fileName, _directory + "\\" + fileName);
 
                 }
+                catch (WebException webex)
+                {
+                    result = false;
+                }
             }
-            return false;
+            return result;
         }
+
+
     }
+
+
 }
