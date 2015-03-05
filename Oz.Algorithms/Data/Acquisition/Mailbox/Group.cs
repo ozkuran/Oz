@@ -65,8 +65,14 @@ namespace Oz.Algorithms.Data.Acquisition.Mailbox
                     line += s;
                 }
             }
-            post.Body.Add(line);
+            //post.Body.Add(line);
             var swr = new StopWordRemover(line);
+           /* var stm = new Stemmer();
+            var outList = new List<string>();
+            foreach (var word in swr.Remove())
+            {
+                outList.Add(stm.stem(word));                
+            }*/
             post.NoStopWordBody = swr.Remove();
             return post;
         }

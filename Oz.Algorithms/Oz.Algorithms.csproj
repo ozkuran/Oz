@@ -70,6 +70,7 @@
     <Compile Include="Data\Cleaning\StopWordRemover.cs" />
     <Compile Include="Data\Cleaning\Tokenizer.cs" />
     <Compile Include="Data\Clustering\Cluster.cs" />
+    <Compile Include="Data\Download\Github\GithubDataDownloader.cs" />
     <Compile Include="Data\Factory\MongoDBFactory.cs" />
     <Compile Include="Math\Approximation\Bisection.cs" />
     <Compile Include="Math\CalculatePolynomial.cs" />
