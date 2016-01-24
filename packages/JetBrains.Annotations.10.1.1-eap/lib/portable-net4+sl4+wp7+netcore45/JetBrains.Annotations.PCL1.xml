@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>JetBrains.Annotations</name>
+        <name>JetBrains.Annotations.PCL1</name>
     </assembly>
     <members>
         <member name="T:JetBrains.Annotations.CanBeNullAttribute">

@@ -86,7 +86,7 @@ namespace Oz.Algorithms.Data.Acquisition.Mailbox
             var distinctValues = new HashSet<string>();
             if (groupname == "")
             {
-                groupname = @"d:\\data\comp.ai.neural-nets.mbox"; 
+                groupname = @"d:\\data\alt.comp.lang.learn.c-c++.mbox"; 
             }
             //var _filename = 
             int postCount = 0;
