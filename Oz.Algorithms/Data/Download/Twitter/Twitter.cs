@@ -69,7 +69,7 @@ namespace Oz.Algorithms.Data.Download.Twitter
             {
                 results.Add(item);
             }
-            while (followers.NextCursor != null)
+            while (followers.NextCursor != null && followers.NextCursor != 0)
             {
                 System.Threading.Thread.Sleep(60000);
                 followers = service.ListFollowerIdsOf(new ListFollowerIdsOfOptions() { Cursor = followers.NextCursor, ScreenName = userScreenName });
