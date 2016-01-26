@@ -60,10 +60,26 @@ namespace Oz.Algorithms.Data.Download.Twitter
 
         }
 
-        public TwitterCursorList<long> GetFollowerIds(string userScreenName, int maxFollowersToRetrieve = 5000)
+        public List<long> GetFollowerIds(string userScreenName, int maxFollowersToRetrieve = 5000)
         {
+            List<long> results = new List<long>();
             var service = new TwitterService(_consumerKey, _consumerSecret, _accessToken, _accessTokenSecret);
-            return service.ListFollowerIdsOf(new ListFollowerIdsOfOptions() { ScreenName = "maozkuran" });
+            var followers = service.ListFollowerIdsOf(new ListFollowerIdsOfOptions() { Cursor = -1, ScreenName = userScreenName });
+            foreach (var item in followers)
+            {
+                results.Add(item);
+            }
+            while (followers.NextCursor != null)
+            {
+                System.Threading.Thread.Sleep(60000);
+                followers = service.ListFollowerIdsOf(new ListFollowerIdsOfOptions() { Cursor = followers.NextCursor, ScreenName = userScreenName });
+                foreach (var item in followers)
+                {
+                    results.Add(item);
+                }
+            }
+
+            return results;
         }
     }
 }
