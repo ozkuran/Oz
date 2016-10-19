@@ -1,4 +1,5 @@
-nuget restore
-
+before_build:
+  - nuget restore
+  
 build:
-  project: Oz.sln  
+  project: ./Oz.sln  
