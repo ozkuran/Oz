@@ -20,8 +20,8 @@ namespace Oz.Algorithms.Data.Factory
         private string _password = "";
         private string _database = "";
         private string _connectionString = "";
-        [UsedImplicitly] private MongoCredential _credential = null;
-        [UsedImplicitly] private MongoClient _mongoClient = null;
+        private MongoCredential _credential = null;
+        private MongoClient _mongoClient = null;
         private MongoDatabase _mongoDatabase = null;
 
 
