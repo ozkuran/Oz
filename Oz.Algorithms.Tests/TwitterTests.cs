@@ -24,20 +24,20 @@ namespace Oz.Algorithms.Tests
             _twitter = new Twitter(twitterConsumerKey, twitterConsumerSecret, twitterAccessToken, twitterAccessTokenSecret);
         }
 
-        [TestMethod]
-        public void CheckIfConnected()
-        {
-            StringAssert.Equals(_twitter.ConnectedUser(), "maozkuran");
-        }
+        //[TestMethod]
+        //public void CheckIfConnected()
+        //{
+        //    StringAssert.Equals(_twitter.ConnectedUser(), "maozkuran");
+        //}
 
-        [TestMethod]
-        public void CheckFollowerIds()
-        {
-            var results = _twitter.GetFollowerIds("nytimes");
-            StreamWriter file = new System.IO.StreamWriter("d:\\nytimes.txt");
-            results.ForEach(file.WriteLine);
-            file.Close();
-        }
+        //[TestMethod]
+        //public void CheckFollowerIds()
+        //{
+        //    var results = _twitter.GetFollowerIds("nytimes");
+        //    StreamWriter file = new System.IO.StreamWriter("d:\\nytimes.txt");
+        //    results.ForEach(file.WriteLine);
+        //    file.Close();
+        //}
 
     }
 }
