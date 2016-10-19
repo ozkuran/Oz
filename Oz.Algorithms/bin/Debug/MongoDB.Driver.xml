@@ -217,14 +217,39 @@
             Gets or sets a value indicating whether to bypass document validation.
             </summary>
     </member>
+    <member name="P:MongoDB.Driver.AggregateOptions.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
+    </member>
     <member name="P:MongoDB.Driver.AggregateOptions.MaxTime">
       <summary>
             Gets or sets the maximum time.
             </summary>
     </member>
+    <member name="P:MongoDB.Driver.AggregateOptions.TranslationOptions">
+      <summary>
+            Gets or sets the translation options.
+            </summary>
+    </member>
     <member name="P:MongoDB.Driver.AggregateOptions.UseCursor">
       <summary>
             Gets or sets a value indicating whether to use a cursor.
+            </summary>
+    </member>
+    <member name="T:MongoDB.Driver.AggregateStringTranslationMode">
+      <summary>
+            Option for which expression to generate for certain string operations.
+            </summary>
+    </member>
+    <member name="F:MongoDB.Driver.AggregateStringTranslationMode.Bytes">
+      <summary>
+            Translate to the byte variation.
+            </summary>
+    </member>
+    <member name="F:MongoDB.Driver.AggregateStringTranslationMode.CodePoints">
+      <summary>
+            Translate to the code points variation. This is only supported in &gt;= MongoDB 3.4.
             </summary>
     </member>
     <member name="T:MongoDB.Driver.AggregateUnwindOptions`1">
@@ -885,6 +910,11 @@
         </markup>
       </summary>
     </member>
+    <member name="P:MongoDB.Driver.CountOptions.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
+    </member>
     <member name="P:MongoDB.Driver.CountOptions.Hint">
       <summary>
             Gets or sets the hint.
@@ -927,6 +957,11 @@
     <member name="P:MongoDB.Driver.CreateCollectionOptions.Capped">
       <summary>
             Gets or sets a value indicating whether the collection is capped.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.CreateCollectionOptions.Collation">
+      <summary>
+            Gets or sets the collation.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.CreateCollectionOptions.IndexOptionDefaults">
@@ -1046,6 +1081,11 @@
             Gets or sets the size of a geohash bucket.
             </summary>
     </member>
+    <member name="P:MongoDB.Driver.CreateIndexOptions.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
+    </member>
     <member name="P:MongoDB.Driver.CreateIndexOptions.DefaultLanguage">
       <summary>
             Gets or sets the default language.
@@ -1131,6 +1171,44 @@
             Gets or sets the partial filter expression.
             </summary>
     </member>
+    <member name="T:MongoDB.Driver.CreateViewOptions`1">
+      <summary>
+            Options for creating a view.
+            </summary>
+      <typeparam name="TDocument">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>TDocument</parameter>
+            <parameter>T:MongoDB.Driver.CreateViewOptions`1</parameter>
+          </include>
+        </markup>
+      </typeparam>
+    </member>
+    <member name="M:MongoDB.Driver.CreateViewOptions`1.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>MongoDB.Driver.CreateViewOptions`1</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:MongoDB.Driver.CreateViewOptions`1.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.CreateViewOptions`1.DocumentSerializer">
+      <summary>
+            Gets or sets the document serializer.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.CreateViewOptions`1.SerializerRegistry">
+      <summary>
+            Gets or sets the serializer registry.
+            </summary>
+    </member>
     <member name="T:MongoDB.Driver.CursorType">
       <summary>
             The cursor type.
@@ -1163,6 +1241,11 @@
             </summary>
       <param name="filter">The filter.</param>
     </member>
+    <member name="P:MongoDB.Driver.DeleteManyModel`1.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
+    </member>
     <member name="P:MongoDB.Driver.DeleteManyModel`1.Filter">
       <summary>
             Gets the filter.
@@ -1185,6 +1268,11 @@
             </summary>
       <param name="filter">The filter.</param>
     </member>
+    <member name="P:MongoDB.Driver.DeleteOneModel`1.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
+    </member>
     <member name="P:MongoDB.Driver.DeleteOneModel`1.Filter">
       <summary>
             Gets the filter.
@@ -1193,6 +1281,25 @@
     <member name="P:MongoDB.Driver.DeleteOneModel`1.ModelType">
       <summary>
             Gets the type of the model.
+            </summary>
+    </member>
+    <member name="T:MongoDB.Driver.DeleteOptions">
+      <summary>
+            Options for the Delete methods.
+            </summary>
+    </member>
+    <member name="M:MongoDB.Driver.DeleteOptions.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>MongoDB.Driver.DeleteOptions</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:MongoDB.Driver.DeleteOptions.Collation">
+      <summary>
+            Gets or sets the collation.
             </summary>
     </member>
     <member name="T:MongoDB.Driver.DeleteResult">
@@ -1269,6 +1376,11 @@
           </include>
         </markup>
       </summary>
+    </member>
+    <member name="P:MongoDB.Driver.DistinctOptions.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
     </member>
     <member name="P:MongoDB.Driver.DistinctOptions.MaxTime">
       <summary>
@@ -1350,6 +1462,25 @@
       <param name="documentSerializer">The document serializer.</param>
       <param name="serializerRegistry">The serializer registry.</param>
       <returns>A <see cref="T:MongoDB.Bson.BsonDocument" />.</returns>
+    </member>
+    <member name="T:MongoDB.Driver.ExpressionTranslationOptions">
+      <summary>
+            Options for controlling translation from .NET expression trees into MongoDB expressions.
+            </summary>
+    </member>
+    <member name="M:MongoDB.Driver.ExpressionTranslationOptions.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>MongoDB.Driver.ExpressionTranslationOptions</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:MongoDB.Driver.ExpressionTranslationOptions.StringTranslationMode">
+      <summary>
+            Gets or sets the string translation mode.
+            </summary>
     </member>
     <member name="T:MongoDB.Driver.ExternalEvidence">
       <summary>
@@ -2585,6 +2716,11 @@
         </markup>
       </summary>
     </member>
+    <member name="P:MongoDB.Driver.FindOneAndDeleteOptions`2.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
+    </member>
     <member name="P:MongoDB.Driver.FindOneAndDeleteOptions`2.MaxTime">
       <summary>
             Gets or sets the maximum time.
@@ -2630,6 +2766,11 @@
     <member name="P:MongoDB.Driver.FindOneAndReplaceOptions`2.BypassDocumentValidation">
       <summary>
             Gets or sets a value indicating whether to bypass document validation.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.FindOneAndReplaceOptions`2.Collation">
+      <summary>
+            Gets or sets the collation.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.FindOneAndReplaceOptions`2.IsUpsert">
@@ -2687,6 +2828,11 @@
     <member name="P:MongoDB.Driver.FindOneAndUpdateOptions`2.BypassDocumentValidation">
       <summary>
             Gets or sets a value indicating whether to bypass document validation.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.FindOneAndUpdateOptions`2.Collation">
+      <summary>
+            Gets or sets the collation.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.FindOneAndUpdateOptions`2.IsUpsert">
@@ -2797,6 +2943,11 @@
     <member name="P:MongoDB.Driver.FindOptionsBase.BatchSize">
       <summary>
             Gets or sets the size of a batch.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.FindOptionsBase.Collation">
+      <summary>
+            Gets or sets the collation.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.FindOptionsBase.Comment">
@@ -3515,6 +3666,27 @@
             Gets the settings.
             </summary>
     </member>
+    <member name="M:MongoDB.Driver.IMongoClient.WithReadConcern(MongoDB.Driver.ReadConcern)">
+      <summary>
+            Returns a new IMongoClient instance with a different read concern setting.
+            </summary>
+      <param name="readConcern">The read concern.</param>
+      <returns>A new IMongoClient instance with a different read concern setting.</returns>
+    </member>
+    <member name="M:MongoDB.Driver.IMongoClient.WithReadPreference(MongoDB.Driver.ReadPreference)">
+      <summary>
+            Returns a new IMongoClient instance with a different read preference setting.
+            </summary>
+      <param name="readPreference">The read preference.</param>
+      <returns>A new IMongoClient instance with a different read preference setting.</returns>
+    </member>
+    <member name="M:MongoDB.Driver.IMongoClient.WithWriteConcern(MongoDB.Driver.WriteConcern)">
+      <summary>
+            Returns a new IMongoClient instance with a different write concern setting.
+            </summary>
+      <param name="writeConcern">The write concern.</param>
+      <returns>A new IMongoClient instance with a different write concern setting.</returns>
+    </member>
     <member name="T:MongoDB.Driver.IMongoCollection`1">
       <summary>
             Represents a typed collection in MongoDB.
@@ -3591,11 +3763,33 @@
             Gets the database.
             </summary>
     </member>
+    <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteMany(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes multiple documents.
+            </summary>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
     <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteMany(MongoDB.Driver.FilterDefinition{`0},System.Threading.CancellationToken)">
       <summary>
             Deletes multiple documents.
             </summary>
       <param name="filter">The filter.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
+    <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteManyAsync(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes multiple documents.
+            </summary>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
       <param name="cancellationToken">The cancellation token.</param>
       <returns>
             The result of the delete operation.
@@ -3611,11 +3805,33 @@
             The result of the delete operation.
             </returns>
     </member>
+    <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteOne(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes a single document.
+            </summary>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
     <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteOne(MongoDB.Driver.FilterDefinition{`0},System.Threading.CancellationToken)">
       <summary>
             Deletes a single document.
             </summary>
       <param name="filter">The filter.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
+    <member name="M:MongoDB.Driver.IMongoCollection`1.DeleteOneAsync(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes a single document.
+            </summary>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
       <param name="cancellationToken">The cancellation token.</param>
       <returns>
             The result of the delete operation.
@@ -3916,24 +4132,24 @@
     </member>
     <member name="M:MongoDB.Driver.IMongoCollection`1.WithReadConcern(MongoDB.Driver.ReadConcern)">
       <summary>
-            Returns a new collection with a different read concern.
+            Returns a new IMongoCollection instance with a different read concern setting.
             </summary>
       <param name="readConcern">The read concern.</param>
-      <returns>A new collection.</returns>
+      <returns>A new IMongoCollection instance with a different read concern setting.</returns>
     </member>
     <member name="M:MongoDB.Driver.IMongoCollection`1.WithReadPreference(MongoDB.Driver.ReadPreference)">
       <summary>
-            Returns a new collection with a different read preference.
+            Returns a new IMongoCollection instance with a different read preference setting.
             </summary>
       <param name="readPreference">The read preference.</param>
-      <returns>A new collection.</returns>
+      <returns>A new IMongoCollection instance with a different read preference setting.</returns>
     </member>
     <member name="M:MongoDB.Driver.IMongoCollection`1.WithWriteConcern(MongoDB.Driver.WriteConcern)">
       <summary>
-            Returns a new collection with a different write concern.
+            Returns a new IMongoCollection instance with a different write concern setting.
             </summary>
       <param name="writeConcern">The write concern.</param>
-      <returns>A new collection.</returns>
+      <returns>A new IMongoCollection instance with a different write concern setting.</returns>
     </member>
     <member name="T:MongoDB.Driver.IMongoCollectionExtensions">
       <summary>
@@ -3986,12 +4202,38 @@
             The number of documents in the collection.
             </returns>
     </member>
+    <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteMany``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes multiple documents.
+            </summary>
+      <param name="collection">The collection.</param>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <typeparam name="TDocument">The type of the document.</typeparam>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
     <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteMany``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.CancellationToken)">
       <summary>
             Deletes multiple documents.
             </summary>
       <param name="collection">The collection.</param>
       <param name="filter">The filter.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <typeparam name="TDocument">The type of the document.</typeparam>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
+    <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteManyAsync``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes multiple documents.
+            </summary>
+      <param name="collection">The collection.</param>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
       <param name="cancellationToken">The cancellation token.</param>
       <typeparam name="TDocument">The type of the document.</typeparam>
       <returns>
@@ -4010,12 +4252,38 @@
             The result of the delete operation.
             </returns>
     </member>
+    <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteOne``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes a single document.
+            </summary>
+      <param name="collection">The collection.</param>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <typeparam name="TDocument">The type of the document.</typeparam>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
     <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteOne``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.CancellationToken)">
       <summary>
             Deletes a single document.
             </summary>
       <param name="collection">The collection.</param>
       <param name="filter">The filter.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <typeparam name="TDocument">The type of the document.</typeparam>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
+    <member name="M:MongoDB.Driver.IMongoCollectionExtensions.DeleteOneAsync``1(MongoDB.Driver.IMongoCollection{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes a single document.
+            </summary>
+      <param name="collection">The collection.</param>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
       <param name="cancellationToken">The cancellation token.</param>
       <typeparam name="TDocument">The type of the document.</typeparam>
       <returns>
@@ -4555,6 +4823,38 @@
       <param name="cancellationToken">The cancellation token.</param>
       <returns>A task.</returns>
     </member>
+    <member name="M:MongoDB.Driver.IMongoDatabase.CreateView``2(System.String,System.String,MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.CreateViewOptions{``0},System.Threading.CancellationToken)">
+      <summary>
+            Creates a view.
+            </summary>
+      <param name="viewName">The name of the view.</param>
+      <param name="viewOn">The name of the collection that the view is on.</param>
+      <param name="pipeline">The pipeline.</param>
+      <param name="options">The options.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <typeparam name="TDocument">The type of the input documents.</typeparam>
+      <typeparam name="TResult">The type of the pipeline result documents.</typeparam>
+    </member>
+    <member name="M:MongoDB.Driver.IMongoDatabase.CreateViewAsync``2(System.String,System.String,MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.CreateViewOptions{``0},System.Threading.CancellationToken)">
+      <summary>
+            Creates a view.
+            </summary>
+      <param name="viewName">The name of the view.</param>
+      <param name="viewOn">The name of the collection that the view is on.</param>
+      <param name="pipeline">The pipeline.</param>
+      <param name="options">The options.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <typeparam name="TDocument">The type of the input documents.</typeparam>
+      <typeparam name="TResult">The type of the pipeline result documents.</typeparam>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:MongoDB.Driver.IMongoDatabase.CreateViewAsync``2(System.String,System.String,MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.CreateViewOptions{``0},System.Threading.CancellationToken)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
     <member name="P:MongoDB.Driver.IMongoDatabase.DatabaseNamespace">
       <summary>
             Gets the namespace of the database.
@@ -4647,6 +4947,27 @@
       <summary>
             Gets the settings.
             </summary>
+    </member>
+    <member name="M:MongoDB.Driver.IMongoDatabase.WithReadConcern(MongoDB.Driver.ReadConcern)">
+      <summary>
+            Returns a new IMongoDatabase instance with a different read concern setting.
+            </summary>
+      <param name="readConcern">The read concern.</param>
+      <returns>A new IMongoDatabase instance with a different read concern setting.</returns>
+    </member>
+    <member name="M:MongoDB.Driver.IMongoDatabase.WithReadPreference(MongoDB.Driver.ReadPreference)">
+      <summary>
+            Returns a new IMongoDatabase instance with a different read preference setting.
+            </summary>
+      <param name="readPreference">The read preference.</param>
+      <returns>A new IMongoDatabase instance with a different read preference setting.</returns>
+    </member>
+    <member name="M:MongoDB.Driver.IMongoDatabase.WithWriteConcern(MongoDB.Driver.WriteConcern)">
+      <summary>
+            Returns a new IMongoDatabase instance with a different write concern setting.
+            </summary>
+      <param name="writeConcern">The write concern.</param>
+      <returns>A new IMongoDatabase instance with a different write concern setting.</returns>
     </member>
     <member name="T:MongoDB.Driver.IMongoIndexManager`1">
       <summary>
@@ -5493,6 +5814,11 @@
             Gets or sets a value indicating whether to bypass document validation.
             </summary>
     </member>
+    <member name="P:MongoDB.Driver.MapReduceOptions`2.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
+    </member>
     <member name="P:MongoDB.Driver.MapReduceOptions`2.Filter">
       <summary>
             Gets or sets the filter.
@@ -5734,6 +6060,27 @@
             Gets the settings.
             </summary>
     </member>
+    <member name="M:MongoDB.Driver.MongoClient.WithReadConcern(MongoDB.Driver.ReadConcern)">
+      <summary>
+            Returns a new IMongoClient instance with a different read concern setting.
+            </summary>
+      <param name="readConcern">The read concern.</param>
+      <returns>A new IMongoClient instance with a different read concern setting.</returns>
+    </member>
+    <member name="M:MongoDB.Driver.MongoClient.WithReadPreference(MongoDB.Driver.ReadPreference)">
+      <summary>
+            Returns a new IMongoClient instance with a different read preference setting.
+            </summary>
+      <param name="readPreference">The read preference.</param>
+      <returns>A new IMongoClient instance with a different read preference setting.</returns>
+    </member>
+    <member name="M:MongoDB.Driver.MongoClient.WithWriteConcern(MongoDB.Driver.WriteConcern)">
+      <summary>
+            Returns a new IMongoClient instance with a different write concern setting.
+            </summary>
+      <param name="writeConcern">The write concern.</param>
+      <returns>A new IMongoClient instance with a different write concern setting.</returns>
+    </member>
     <member name="T:MongoDB.Driver.MongoClientBase">
       <summary>
             Base class for implementors of <see cref="T:MongoDB.Driver.IMongoClient" />.
@@ -5795,6 +6142,27 @@
             Gets the settings.
             </summary>
     </member>
+    <member name="M:MongoDB.Driver.MongoClientBase.WithReadConcern(MongoDB.Driver.ReadConcern)">
+      <summary>
+            Returns a new IMongoClient instance with a different read concern setting.
+            </summary>
+      <param name="readConcern">The read concern.</param>
+      <returns>A new IMongoClient instance with a different read concern setting.</returns>
+    </member>
+    <member name="M:MongoDB.Driver.MongoClientBase.WithReadPreference(MongoDB.Driver.ReadPreference)">
+      <summary>
+            Returns a new IMongoClient instance with a different read preference setting.
+            </summary>
+      <param name="readPreference">The read preference.</param>
+      <returns>A new IMongoClient instance with a different read preference setting.</returns>
+    </member>
+    <member name="M:MongoDB.Driver.MongoClientBase.WithWriteConcern(MongoDB.Driver.WriteConcern)">
+      <summary>
+            Returns a new IMongoClient instance with a different write concern setting.
+            </summary>
+      <param name="writeConcern">The write concern.</param>
+      <returns>A new IMongoClient instance with a different write concern setting.</returns>
+    </member>
     <member name="T:MongoDB.Driver.MongoClientSettings">
       <summary>
             The settings for a MongoDB client.
@@ -5803,6 +6171,11 @@
     <member name="M:MongoDB.Driver.MongoClientSettings.#ctor">
       <summary>
             Creates a new instance of MongoClientSettings. Usually you would use a connection string instead.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.MongoClientSettings.ApplicationName">
+      <summary>
+            Gets or sets the application name.
             </summary>
     </member>
     <member name="M:MongoDB.Driver.MongoClientSettings.Clone">
@@ -5877,6 +6250,16 @@
     <member name="P:MongoDB.Driver.MongoClientSettings.GuidRepresentation">
       <summary>
             Gets or sets the representation to use for Guids.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.MongoClientSettings.HeartbeatInterval">
+      <summary>
+            Gets or sets the heartbeat interval.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.MongoClientSettings.HeartbeatTimeout">
+      <summary>
+            Gets or sets the heartbeat timeout.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.MongoClientSettings.IPv6">
@@ -6100,11 +6483,33 @@
             Gets the database.
             </summary>
     </member>
+    <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteMany(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes multiple documents.
+            </summary>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
     <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteMany(MongoDB.Driver.FilterDefinition{`0},System.Threading.CancellationToken)">
       <summary>
             Deletes multiple documents.
             </summary>
       <param name="filter">The filter.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
+    <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteManyAsync(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes multiple documents.
+            </summary>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
       <param name="cancellationToken">The cancellation token.</param>
       <returns>
             The result of the delete operation.
@@ -6120,11 +6525,33 @@
             The result of the delete operation.
             </returns>
     </member>
+    <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteOne(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes a single document.
+            </summary>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
     <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteOne(MongoDB.Driver.FilterDefinition{`0},System.Threading.CancellationToken)">
       <summary>
             Deletes a single document.
             </summary>
       <param name="filter">The filter.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <returns>
+            The result of the delete operation.
+            </returns>
+    </member>
+    <member name="M:MongoDB.Driver.MongoCollectionBase`1.DeleteOneAsync(MongoDB.Driver.FilterDefinition{`0},MongoDB.Driver.DeleteOptions,System.Threading.CancellationToken)">
+      <summary>
+            Deletes a single document.
+            </summary>
+      <param name="filter">The filter.</param>
+      <param name="options">The options.</param>
       <param name="cancellationToken">The cancellation token.</param>
       <returns>
             The result of the delete operation.
@@ -6425,24 +6852,24 @@
     </member>
     <member name="M:MongoDB.Driver.MongoCollectionBase`1.WithReadConcern(MongoDB.Driver.ReadConcern)">
       <summary>
-            Returns a new collection with a different read concern.
+            Returns a new IMongoCollection instance with a different read concern setting.
             </summary>
       <param name="readConcern">The read concern.</param>
-      <returns>A new collection.</returns>
+      <returns>A new IMongoCollection instance with a different read concern setting.</returns>
     </member>
     <member name="M:MongoDB.Driver.MongoCollectionBase`1.WithReadPreference(MongoDB.Driver.ReadPreference)">
       <summary>
-            Returns a new collection with a different read preference.
+            Returns a new IMongoCollection instance with a different read preference setting.
             </summary>
       <param name="readPreference">The read preference.</param>
-      <returns>A new collection.</returns>
+      <returns>A new IMongoCollection instance with a different read preference setting.</returns>
     </member>
     <member name="M:MongoDB.Driver.MongoCollectionBase`1.WithWriteConcern(MongoDB.Driver.WriteConcern)">
       <summary>
-            Returns a new collection with a different write concern.
+            Returns a new IMongoCollection instance with a different write concern setting.
             </summary>
       <param name="writeConcern">The write concern.</param>
-      <returns>A new collection.</returns>
+      <returns>A new IMongoCollection instance with a different write concern setting.</returns>
     </member>
     <member name="T:MongoDB.Driver.MongoCollectionSettings">
       <summary>
@@ -6758,6 +7185,38 @@
       <param name="cancellationToken">The cancellation token.</param>
       <returns>A task.</returns>
     </member>
+    <member name="M:MongoDB.Driver.MongoDatabaseBase.CreateView``2(System.String,System.String,MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.CreateViewOptions{``0},System.Threading.CancellationToken)">
+      <summary>
+            Creates a view.
+            </summary>
+      <param name="viewName">The name of the view.</param>
+      <param name="viewOn">The name of the collection that the view is on.</param>
+      <param name="pipeline">The pipeline.</param>
+      <param name="options">The options.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <typeparam name="TDocument">The type of the input documents.</typeparam>
+      <typeparam name="TResult">The type of the pipeline result documents.</typeparam>
+    </member>
+    <member name="M:MongoDB.Driver.MongoDatabaseBase.CreateViewAsync``2(System.String,System.String,MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.CreateViewOptions{``0},System.Threading.CancellationToken)">
+      <summary>
+            Creates a view.
+            </summary>
+      <param name="viewName">The name of the view.</param>
+      <param name="viewOn">The name of the collection that the view is on.</param>
+      <param name="pipeline">The pipeline.</param>
+      <param name="options">The options.</param>
+      <param name="cancellationToken">The cancellation token.</param>
+      <typeparam name="TDocument">The type of the input documents.</typeparam>
+      <typeparam name="TResult">The type of the pipeline result documents.</typeparam>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:MongoDB.Driver.MongoDatabaseBase.CreateViewAsync``2(System.String,System.String,MongoDB.Driver.PipelineDefinition{``0,``1},MongoDB.Driver.CreateViewOptions{``0},System.Threading.CancellationToken)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
     <member name="P:MongoDB.Driver.MongoDatabaseBase.DatabaseNamespace">
       <summary>
             Gets the namespace of the database.
@@ -6850,6 +7309,27 @@
       <summary>
             Gets the settings.
             </summary>
+    </member>
+    <member name="M:MongoDB.Driver.MongoDatabaseBase.WithReadConcern(MongoDB.Driver.ReadConcern)">
+      <summary>
+            Returns a new IMongoDatabase instance with a different read concern setting.
+            </summary>
+      <param name="readConcern">The read concern.</param>
+      <returns>A new IMongoDatabase instance with a different read concern setting.</returns>
+    </member>
+    <member name="M:MongoDB.Driver.MongoDatabaseBase.WithReadPreference(MongoDB.Driver.ReadPreference)">
+      <summary>
+            Returns a new IMongoDatabase instance with a different read preference setting.
+            </summary>
+      <param name="readPreference">The read preference.</param>
+      <returns>A new IMongoDatabase instance with a different read preference setting.</returns>
+    </member>
+    <member name="M:MongoDB.Driver.MongoDatabaseBase.WithWriteConcern(MongoDB.Driver.WriteConcern)">
+      <summary>
+            Returns a new IMongoDatabase instance with a different write concern setting.
+            </summary>
+      <param name="writeConcern">The write concern.</param>
+      <returns>A new IMongoDatabase instance with a different write concern setting.</returns>
     </member>
     <member name="T:MongoDB.Driver.MongoDatabaseSettings">
       <summary>
@@ -7514,6 +7994,11 @@
             </summary>
       <param name="url">The URL containing the settings.</param>
     </member>
+    <member name="P:MongoDB.Driver.MongoUrl.ApplicationName">
+      <summary>
+            Gets the application name.
+            </summary>
+    </member>
     <member name="P:MongoDB.Driver.MongoUrl.AuthenticationMechanism">
       <summary>
             Gets the authentication mechanism.
@@ -7597,6 +8082,16 @@
     <member name="P:MongoDB.Driver.MongoUrl.GuidRepresentation">
       <summary>
             Gets the representation to use for Guids.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.MongoUrl.HeartbeatInterval">
+      <summary>
+            Gets the heartbeat interval.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.MongoUrl.HeartbeatTimeout">
+      <summary>
+            Gets the heartbeat timeout.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.MongoUrl.IPv6">
@@ -7758,6 +8253,11 @@
             </summary>
       <param name="url">The initial settings.</param>
     </member>
+    <member name="P:MongoDB.Driver.MongoUrlBuilder.ApplicationName">
+      <summary>
+            Gets or sets the application name.
+            </summary>
+    </member>
     <member name="P:MongoDB.Driver.MongoUrlBuilder.AuthenticationMechanism">
       <summary>
             Gets or sets the authentication mechanism.
@@ -7808,6 +8308,16 @@
     <member name="P:MongoDB.Driver.MongoUrlBuilder.GuidRepresentation">
       <summary>
             Gets or sets the representation to use for Guids.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.MongoUrlBuilder.HeartbeatInterval">
+      <summary>
+            Gets or sets the heartbeat interval.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.MongoUrlBuilder.HeartbeatTimeout">
+      <summary>
+            Gets or sets the heartbeat timeout.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.MongoUrlBuilder.IPv6">
@@ -8899,6 +9409,11 @@
             </summary>
       <param name="filter">The filter.</param>
       <param name="replacement">The replacement.</param>
+    </member>
+    <member name="P:MongoDB.Driver.ReplaceOneModel`1.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
     </member>
     <member name="P:MongoDB.Driver.ReplaceOneModel`1.Filter">
       <summary>
@@ -10455,6 +10970,11 @@
       <param name="filter">The filter.</param>
       <param name="update">The update.</param>
     </member>
+    <member name="P:MongoDB.Driver.UpdateManyModel`1.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
+    </member>
     <member name="P:MongoDB.Driver.UpdateManyModel`1.Filter">
       <summary>
             Gets the filter.
@@ -10487,6 +11007,11 @@
             </summary>
       <param name="filter">The filter.</param>
       <param name="update">The update.</param>
+    </member>
+    <member name="P:MongoDB.Driver.UpdateOneModel`1.Collation">
+      <summary>
+            Gets or sets the collation.
+            </summary>
     </member>
     <member name="P:MongoDB.Driver.UpdateOneModel`1.Filter">
       <summary>
@@ -10525,6 +11050,11 @@
     <member name="P:MongoDB.Driver.UpdateOptions.BypassDocumentValidation">
       <summary>
             Gets or sets a value indicating whether to bypass document validation.
+            </summary>
+    </member>
+    <member name="P:MongoDB.Driver.UpdateOptions.Collation">
+      <summary>
+            Gets or sets the collation.
             </summary>
     </member>
     <member name="P:MongoDB.Driver.UpdateOptions.IsUpsert">
@@ -12752,18 +13282,10 @@
     </member>
     <member name="M:MongoDB.Driver.Linq.LinqExtensions.Inject``1(MongoDB.Driver.FilterDefinition{``0})">
       <summary>
-            Injects a low level FilterDefinition{T} into a LINQ where clause. Can only be used in LINQ queries.
+            Injects a low level FilterDefinition{TDocument} into a LINQ where clause. Can only be used in LINQ queries.
             </summary>
       <param name="filter">The filter.</param>
-      <typeparam name="T">
-        <markup>
-          <include item="SMCMissingParamTag">
-            <parameter>typeparam</parameter>
-            <parameter>T</parameter>
-            <parameter>M:MongoDB.Driver.Linq.LinqExtensions.Inject``1(MongoDB.Driver.FilterDefinition{``0})</parameter>
-          </include>
-        </markup>
-      </typeparam>
+      <typeparam name="TDocument">The type of the document.</typeparam>
       <returns>
             Throws an InvalidOperationException if called.
             </returns>

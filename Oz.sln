@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oz.Algorithms", "Oz.Algorithms\Oz.Algorithms.csproj", "{7BAECB01-BEAC-4334-85E6-6C3F2FD7C28B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oz.Algorithms", "Oz.Algorithms\Oz.Algorithms.csproj", "{B269EA25-A5BE-4807-AB00-FD805EC7ABAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7BAECB01-BEAC-4334-85E6-6C3F2FD7C28B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BAECB01-BEAC-4334-85E6-6C3F2FD7C28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BAECB01-BEAC-4334-85E6-6C3F2FD7C28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BAECB01-BEAC-4334-85E6-6C3F2FD7C28B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B269EA25-A5BE-4807-AB00-FD805EC7ABAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B269EA25-A5BE-4807-AB00-FD805EC7ABAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B269EA25-A5BE-4807-AB00-FD805EC7ABAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B269EA25-A5BE-4807-AB00-FD805EC7ABAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

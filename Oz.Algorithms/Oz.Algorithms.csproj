@@ -1,19 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7BAECB01-BEAC-4334-85E6-6C3F2FD7C28B}</ProjectGuid>
+    <ProjectGuid>{B269EA25-A5BE-4807-AB00-FD805EC7ABAC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Oz.Algorithms</RootNamespace>
     <AssemblyName>Oz.Algorithms</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,8 +20,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Oz.Algorithms.XML</DocumentationFile>
-    <RegisterForComInterop>false</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,36 +29,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Data\Acquisition\Mailbox\Group.cs" />
-    <Compile Include="Data\Acquisition\Mailbox\Header.cs" />
-    <Compile Include="Data\Acquisition\Mailbox\Mbox.cs" />
-    <Compile Include="Data\Acquisition\Mailbox\Post.cs" />
-    <Compile Include="Data\Acquisition\Stackoverflow\Post.cs" />
-    <Compile Include="Data\Acquisition\Stackoverflow\Stackoverflow.cs" />
-    <Compile Include="Data\Acquisition\Stackoverflow\Tag.cs" />
-    <Compile Include="Data\Cleaning\Stemmer.cs" />
-    <Compile Include="Data\Cleaning\StopWordRemover.cs" />
-    <Compile Include="Data\Cleaning\Tokenizer.cs" />
-    <Compile Include="Data\Clustering\Cluster.cs" />
-    <Compile Include="Data\Download\Github\GithubDataDownloader.cs" />
-    <Compile Include="Data\Download\Twitter\Twitter.cs" />
-    <Compile Include="Data\Factory\MongoDBFactory.cs" />
-    <Compile Include="Math\Approximation\Bisection.cs" />
-    <Compile Include="Math\CalculatePolynomial.cs" />
-    <Compile Include="Math\Graph\Edge.cs" />
-    <Compile Include="Math\Graph\Graph.cs" />
-    <Compile Include="Math\Graph\Vertex.cs" />
-    <Compile Include="Math\Graph\Path.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
   <ItemGroup>
     <Reference Include="Hammock.ClientProfile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
       <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Hammock.ClientProfile.dll</HintPath>
@@ -89,21 +54,50 @@
       <HintPath>..\packages\mongocsharpdriver.2.4.0-beta1\lib\net45\MongoDB.Driver.Legacy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.2-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
     <Reference Include="TweetSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
       <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\TweetSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Acquisition\Mailbox\Group.cs" />
+    <Compile Include="Data\Acquisition\Mailbox\Header.cs" />
+    <Compile Include="Data\Acquisition\Mailbox\Mbox.cs" />
+    <Compile Include="Data\Acquisition\Mailbox\Post.cs" />
+    <Compile Include="Data\Acquisition\Stackoverflow\Post.cs" />
+    <Compile Include="Data\Acquisition\Stackoverflow\Stackoverflow.cs" />
+    <Compile Include="Data\Acquisition\Stackoverflow\Tag.cs" />
+    <Compile Include="Data\Cleaning\Stemmer.cs" />
+    <Compile Include="Data\Cleaning\StopWordRemover.cs" />
+    <Compile Include="Data\Cleaning\Tokenizer.cs" />
+    <Compile Include="Data\Clustering\Cluster.cs" />
+    <Compile Include="Data\Download\Github\GithubDataDownloader.cs" />
+    <Compile Include="Data\Download\Twitter\Twitter.cs" />
+    <Compile Include="Data\Factory\MongoDBFactory.cs" />
+    <Compile Include="Math\Approximation\Bisection.cs" />
+    <Compile Include="Math\CalculatePolynomial.cs" />
+    <Compile Include="Math\Graph\Edge.cs" />
+    <Compile Include="Math\Graph\Graph.cs" />
+    <Compile Include="Math\Graph\Path.cs" />
+    <Compile Include="Math\Graph\Vertex.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
