@@ -81,6 +81,5 @@ F:\repos\git\Oz\Oz.Algorithms\bin\Debug\Newtonsoft.Json.xml
 F:\repos\git\Oz\Oz.Algorithms\bin\Debug\System.Net.Http.Extensions.xml
 F:\repos\git\Oz\Oz.Algorithms\bin\Debug\System.Net.Http.Primitives.xml
 F:\repos\git\Oz\Oz.Algorithms\bin\Debug\TweetSharp.pdb
-F:\repos\git\Oz\Oz.Algorithms\obj\Debug\Oz.Algorithms.csprojResolveAssemblyReference.cache
 F:\repos\git\Oz\Oz.Algorithms\obj\Debug\Oz.Algorithms.dll
 F:\repos\git\Oz\Oz.Algorithms\obj\Debug\Oz.Algorithms.pdb
