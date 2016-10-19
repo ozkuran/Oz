@@ -1,0 +1,4 @@
+nuget restore
+
+build:
+  project: Oz.sln  
